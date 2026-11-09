@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数学・IQ練習 | Latihan Matematika & Tes IQ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <!-- ホーム画面 -->
+    <section id="screen-home">
+      <header class="top">
+        <h1>数学・IQ練習<span class="id">Latihan Matematika &amp; Tes IQ</span></h1>
+        <p id="student-status" class="status"></p>
+      </header>
+
+      <h2>計算<span class="id">Berhitung</span></h2>
+      <div class="menu">
+        <button class="menu-btn" data-test="kraepelin">連続たし算<span class="id">Penjumlahan beruntun</span><small>1分 / 1 menit</small></button>
+        <button class="menu-btn" data-test="arithmetic">四則計算<span class="id">Operasi hitung (+ − × ÷)</span><small>10問 / 10 soal</small></button>
+        <button class="menu-btn" data-test="units">単位換算<span class="id">Konversi satuan</span><small>10問 / 10 soal</small></button>
+      </div>
+
+      <h2>IQテスト<span class="id">Tes IQ</span></h2>
+      <div class="menu">
+        <button class="menu-btn" data-test="sequence">数列<span class="id">Deret angka</span><small>10問 / 10 soal</small></button>
+        <button class="menu-btn" data-test="figure">図形の規則<span class="id">Pola gambar</span><small>6問 / 6 soal</small></button>
+      </div>
+    </section>
+
+    <!-- 練習画面（四則計算・単位換算・数列・図形） -->
+    <section id="screen-quiz" hidden>
+      <div class="bar">
+        <button class="small-btn" data-home>やめる<span class="id">Berhenti</span></button>
+        <span id="quiz-progress" class="progress"></span>
+      </div>
+      <div id="mode-switch" class="mode-switch"></div>
+      <div id="quiz-prompt" class="prompt"></div>
+      <div id="quiz-input"></div>
+      <div id="quiz-feedback" class="feedback"></div>
+    </section>
+
+    <!-- 連続たし算 -->
+    <section id="screen-kraepelin" hidden>
+      <div class="bar">
+        <button class="small-btn" data-home>やめる<span class="id">Berhenti</span></button>
+        <span id="kr-timer" class="progress"></span>
+      </div>
+      <div id="kr-intro">
+        <p class="prompt-note">となりの2つの数をたして、答えの<b>一の位</b>だけを押します。<span class="id">Jumlahkan dua angka yang bersebelahan, lalu tekan <b>angka satuan</b> saja.</span></p>
+        <p class="example">例 / Contoh：7 + 5 = 12 → <b>2</b></p>
+        <p class="prompt-note">1分間、できるだけ多く、正確に。<span class="id">Selama 1 menit, sebanyak dan setepat mungkin.</span></p>
+        <button id="kr-start" class="answer-btn">スタート<span class="id">Mulai</span></button>
+      </div>
+      <div id="kr-play" hidden>
+        <div id="kr-strip" class="kr-strip"></div>
+        <div id="kr-keys" class="numpad kr-pad"></div>
+      </div>
+    </section>
+
+    <!-- 結果画面 -->
+    <section id="screen-result" hidden>
+      <h1 id="res-title"></h1>
+      <p id="res-score" class="big-score"></p>
+      <p id="res-time" class="res-time"></p>
+      <table id="res-cats" class="res-cats"></table>
+      <div id="res-note" class="res-note"></div>
+      <div id="res-review"></div>
+      <div class="res-buttons">
+        <button id="res-retry" class="answer-btn">もう一度<span class="id">Ulangi</span></button>
+        <button class="menu-btn center" data-home>ホームへ<span class="id">Beranda</span></button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 問題データ（問題の追加・変更はこの3つのファイルだけ） -->
+  <script src="data-calc.js"></script>
+  <script src="data-sequence.js"></script>
+  <script src="data-figure.js"></script>
+  <!-- プログラム -->
+  <script src="util.js"></script>
+  <script src="figure.js"></script>
+  <script src="build.js"></script>
+  <script src="quiz.js"></script>
+  <script src="kraepelin.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
